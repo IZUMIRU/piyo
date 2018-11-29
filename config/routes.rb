@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   }
   root to: 'tops#index'
   # Twitterログイン後のリダイレクト先変更
-  get '/notifications', to: 'notifications#index', as: :user_root
+  get '/notifications/new', to: 'notifications#new', as: :user_root
 end
