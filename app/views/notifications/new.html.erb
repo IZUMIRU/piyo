@@ -1,14 +1,14 @@
 <h1>通知設定</h1>
-<%= form_with url: user_root_path do |form| %>
-  <%= form.check_box :monday %>
-  <%= form.check_box :tuesday %>
-  <%= form.check_box :wednesday %>
-  <%= form.check_box :thursday %>
-  <%= form.check_box :friday %>
-  <%= form.check_box :saturday %>
-  <%= form.check_box :sunday %>
+<%= form_with(@notification) do |f| %>
+  月<%= f.check_box :monday %>
+  火<%= f.check_box :tuesday %>
+  水<%= f.check_box :wednesday %>
+  木<%= f.check_box :thursday %>
+  金<%= f.check_box :friday %>
+  土<%= f.check_box :saturday %>
+  日<%= f.check_box :sunday %>
 
-  <%= form.number_field :time %>
+  <%= f.time_field :time %>
 
-  <%= form.submit %>
+  <%= f.submit %>
 <% end %>
