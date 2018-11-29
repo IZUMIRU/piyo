@@ -3,4 +3,6 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
   root to: 'tops#index'
+  # Twitterログイン後のリダイレクト先変更
+  get '/notifications', to: 'notifications#index', as: :user_root
 end
