@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_11_29_142606) do
     t.boolean "friday", default: false, null: false
     t.boolean "saturday", default: false, null: false
     t.boolean "sunday", default: false, null: false
-    t.integer "time"
+    t.time "time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

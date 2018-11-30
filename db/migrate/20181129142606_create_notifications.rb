@@ -8,7 +8,7 @@ class CreateNotifications < ActiveRecord::Migration[5.2]
       t.boolean :friday, default: false, null: false
       t.boolean :saturday, default: false, null: false
       t.boolean :sunday, default: false, null: false
-      t.integer :time
+      t.time :time, null: false
 
       t.timestamps
     end
