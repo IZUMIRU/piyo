@@ -1,27 +1,34 @@
 class NotificationsController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :create]
 
-  def new
-    @notification = Notification.new
-  end
-
-  def create
-    @notification = Notification.new(notification_params)
-    if @notification.save
-      redirect_to @notification
-      flash[:notice] = '通知時間を設定できました。'
-    else
-      flash[:notice] = '通知時間を設定できませんでした。'
-      render :new
+  def index
+    if user_signed_in?
+      redirect_to notifications_finish_path
     end
   end
 
-  def destroy
-    notification = Notification.find(params[:id])
-    notification.destroy if notification.user_id == current_user.id
-    redirect_to notifications_path(id: notification.id)
-    flash[:notice] = "通知を止めました。"
+  def set
+    notification = Notification.find_by(user_id: current_user.id)
+    if notification.blank?
+   @notification = Notification.new
+    if @notification.present?
+
+    end
   end
+
+  def finish
+    notification = Notification.find_by(user_id: current_user.id)
+    if notification.blank?
+      redirect_to notifications_set_path
+    end
+  end
+
+  # def destroy
+  #   notification = Notification.find(params[:id])
+  #   notification.destroy if notification.user_id == current_user.id
+  #   redirect_to notifications_path(id: notification.id)
+  #   flash[:notice] = "通知を止めました。"
+  # end
 
   private
   def notification_params
