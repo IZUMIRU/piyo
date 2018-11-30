@@ -1,5 +1,5 @@
 <h1>通知設定</h1>
-<%= form_with(@notification) do |f| %>
+<%= form_with url: @notification do |f| %>
   月<%= f.check_box :monday %>
   火<%= f.check_box :tuesday %>
   水<%= f.check_box :wednesday %>
@@ -10,5 +10,5 @@
 
   <%= f.time_field :time %>
 
-  <%= f.submit %>
+  <%= f.submit '設定する' %>
 <% end %>
