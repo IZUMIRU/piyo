@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root to: 'notifications#top'
   get  'notifications/set'  => 'notifications#set'
   resources :notifications,  only: [:create, :update]
+
+  resources :reports,  only: [:show, :new, :create]
 end
