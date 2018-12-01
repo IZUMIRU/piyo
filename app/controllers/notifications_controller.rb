@@ -13,13 +13,13 @@ class NotificationsController < ApplicationController
   end
 
   def set
-    notification = Notification.find_by(user_id: current_user.id)
-    if notification.blank?
+    @notification = Notification.find_by(user_id: current_user.id)
+    if @notification.blank?
       @notification = Notification.new
     end
   end
 
-  def save
+  def create
     @notification = Notification.new(notification_params)
     if @notification.save
       redirect_to :root
@@ -28,12 +28,14 @@ class NotificationsController < ApplicationController
     end
   end
 
-  # def finish
-  #   notification = Notification.find_by(user_id: current_user.id)
-  #   if notification.blank?
-  #     redirect_to notifications_set_path
-  #   end
-  # end
+  def update
+    @notification = Notification.find_by(user_id: current_user.id)
+    if @notification.update(notification_params)
+      redirect_to :root
+    else
+      render :set
+    end
+  end
 
   # def destroy
   #   notification = Notification.find(params[:id])

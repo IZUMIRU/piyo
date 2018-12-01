@@ -3,7 +3,6 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
   root to: 'notifications#top'
-  get  'notifications/set'    => 'notifications#set'
-  post 'notifications/set'    => 'notifications#save'
-  get  'notifications/finish' => 'notifications#finish'
+  get  'notifications/set'  => 'notifications#set'
+  resources :notifications,  only: [:create, :update]
 end
