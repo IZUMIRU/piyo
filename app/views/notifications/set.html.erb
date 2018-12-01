@@ -1,5 +1,5 @@
 <h1>通知設定</h1>
-<%= form_with model: @notifications, local: true do |f| %>
+<%= form_with model: @notification, url: notifications_set_path, local: true do |f| %>
   月<%= f.check_box :monday,    checked: true %>
   火<%= f.check_box :tuesday,   checked: true %>
   水<%= f.check_box :wednesday, checked: true %>

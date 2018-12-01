@@ -1,27 +1,39 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
-  def index
+  def top
     if user_signed_in?
-      redirect_to notifications_finish_path
+      notification = Notification.find_by(user_id: current_user.id)
+      if notification.blank?
+        redirect_to notifications_set_path
+      end
+    else
+      render :twitter_login
     end
   end
 
   def set
     notification = Notification.find_by(user_id: current_user.id)
     if notification.blank?
-   @notification = Notification.new
-    if @notification.present?
-
+      @notification = Notification.new
     end
   end
 
-  def finish
-    notification = Notification.find_by(user_id: current_user.id)
-    if notification.blank?
-      redirect_to notifications_set_path
+  def save
+    @notification = Notification.new(notification_params)
+    if @notification.save
+      redirect_to :root
+    else
+      render :set
     end
   end
+
+  # def finish
+  #   notification = Notification.find_by(user_id: current_user.id)
+  #   if notification.blank?
+  #     redirect_to notifications_set_path
+  #   end
+  # end
 
   # def destroy
   #   notification = Notification.find(params[:id])
