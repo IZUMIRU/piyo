@@ -4,6 +4,10 @@ class ReportsController < ApplicationController
   def show
   end
 
+  def start
+    @report = Report.new
+  end
+
   def new
     @report = Report.new
   end

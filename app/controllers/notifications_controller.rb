@@ -24,7 +24,7 @@ class NotificationsController < ApplicationController
   def create
     @notification = Notification.new(notification_params)
     if @notification.save
-      redirect_to :root
+      redirect_to reports_start_path
     else
       render :set
     end
