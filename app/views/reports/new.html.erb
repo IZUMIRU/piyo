@@ -1,0 +1,7 @@
+<h1>振り返り</h1>
+
+<%= form_with model: @report, local: true do |f| %>
+  <%= f.text_area :description %>
+
+  <%= f.submit '保存する' %>
+<% end %>
