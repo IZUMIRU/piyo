@@ -4,7 +4,9 @@ class NotificationsController < ApplicationController
   def top
     if user_signed_in?
       notification = Notification.find_by(user_id: current_user.id)
-      if notification.blank?
+      if notification.present?
+        @time = notification.time.strftime('%H:%M')
+      else
         redirect_to notifications_set_path
       end
     else
