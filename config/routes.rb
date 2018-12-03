@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get 'reports/start'  => 'reports#start'
   resources :reports,  only: [:show, :new, :create]
 
-  get 'images/ogp.png', to: 'images#ogp', as: 'images_ogp'
+  get 'images/ogp.png', to: 'images#ogp'
 end
