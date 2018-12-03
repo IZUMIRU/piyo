@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:show, :new, :create, :update, :destroy]
 
   def show
   end
@@ -19,6 +19,6 @@ class ReportsController < ApplicationController
 
   private
   def report_params
-    params.require(:report).permit(:title, :description).merge(user_id: current_user.id)
+    params.require(:report).permit(:description).merge(user_id: current_user.id)
   end
 end
