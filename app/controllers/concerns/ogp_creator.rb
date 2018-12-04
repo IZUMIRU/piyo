@@ -5,8 +5,8 @@ class OgpCreator
   TEXT_POSITION = '0,0'
   FONT = './app/assets/fonts/sample.ttf'
   FONT_SIZE = 65
-  INDENTION_COUNT = 16
-  ROW_LIMIT = 8
+  INDENTION_COUNT = 25
+  ROW_LIMIT = 10
 
   def self.build(text)
     text = prepare_text(text)
