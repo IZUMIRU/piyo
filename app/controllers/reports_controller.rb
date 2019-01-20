@@ -1,7 +1,12 @@
 class ReportsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :new, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
   def show
+    @report = Report.find(params[:id])
+  end
+
+  def start
+    @report = Report.new
   end
 
   def new
@@ -11,9 +16,9 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params)
     if @report.save
-      redirect_to :root
+      redirect_to @report
     else
-      render :set
+      redirect_to new_report_path
     end
   end
 
