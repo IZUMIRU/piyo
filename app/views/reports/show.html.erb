@@ -1,3 +1,7 @@
-OGP画像表示<br><br>
-<%= image_tag "http://tgs.jp.net/wp-content/uploads/2016/12/12.jpg", width:"1200" %>
+<%# set_meta_tags title: 'タイトル', description: @report.description, og: { title: 'タイトル', type: 'website', image: @report.ogp_image } %>
 
+<% if @report.ogp_image.present? %>
+  <%= image_tag @report.ogp_image.url %>
+<% else %>
+  <img src='https://dummyimage.com/500x250/828282/ffffff.png&text=No+Image'>
+<% end %>

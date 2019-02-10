@@ -18,11 +18,39 @@ class ReportsController < ApplicationController
   def create
     @report = Report.new(report_params)
     if @report.save
+      generate_ogp
       # @twitter.update(@report.description)
       redirect_to @report
     else
       redirect_to new_report_path
     end
+  end
+
+  # OGP用の画像を生成する
+  def generate_ogp
+    base_image = Magick::Image.read(Rails.root.join('app/assets/images/ogp.png')).first
+
+    if @report.description.present?
+      draw = Magick::Draw.new
+      # タイトルが14文字より多い場合、文字の真ん中で改行
+      text = @report.description
+      text.insert(text.length/2+1, "\n") if text.length > 14
+      draw.annotate(base_image, 0, 0, 0, -50, text) do
+        self.font      = Rails.root.join('app/assets/fonts/mplus-1p-bold.ttf').to_s
+        self.fill      = 'black'
+        self.stroke    = 'transparent'
+        self.pointsize = 60
+        self.gravity   = Magick::CenterGravity
+      end
+    end
+    # 一旦tmpファイルとして保存
+    ogp = Rails.root.join('tmp/images', "#{@report.id}.png")
+    base_image.write(ogp)
+    # Fileオブジェクトとして開く、画像の保存
+    @report.ogp_image = File.open(ogp)
+    @report.save!
+    # tmpファイルの削除
+    File.delete(File.open(ogp))
   end
 
   private
