@@ -1,1 +1,84 @@
-<%= link_to 'Twitterログイン', user_twitter_omniauth_authorize_path %>
+<section class="firstview">
+  <header class="firstview-header">
+    <img src="<%= image_path('esa_logo@2x.png') %>" width="61px" height="57px">
+    <span class="copyright">ぴよ</span>  
+  </header>
+
+  <div class="c-grid firstview-content">
+    <div class="firstview-unit-heading">
+      <h1 class="firstview-heading">
+        振り返りで、<br>
+        理想の自分に近づく。
+      </h1>
+      
+      <p class="firstview-description">
+        ぴよは、自己成長サポートサービスです。<br>
+        Twitter連携の日報を提供しています。
+      </p>
+    </div>
+
+    <div class="firstview-image">
+      <img src="<%= image_path('charactor_good@2x.png') %>" width="100%" height="auto">
+    </div>
+  </div>
+
+
+  <button class="c-button -twitter">
+    <i class="fab fa-twitter"></i>
+    <%= link_to 'Twitterログイン', user_twitter_omniauth_authorize_path %>
+  </button>
+</section>
+
+<img src="<%= image_path('scroll@2x.png') %>" width="25px" height="43px">
+SCROLL DOWN
+
+<section class="section-block usage c-grid -between">
+  <div class="usage-container">
+    <h2>1.リマインドを設定する</h2>
+    <img src="<%= image_path('iphone@2x.png') %>">
+  </div>
+  
+  <div class="usage-container">
+    <h2>2.リマインドがくる</h2>
+    <img src="<%= image_path('iphone@2x.png') %>">
+  </div>
+
+  <div class="usage-container">
+    <h2>3.Twitterでシェアする</h2>
+    <img src="<%= image_path('iphone@2x.png') %>">
+  </div>
+</section>
+
+<section class="section-block feature">
+  <div class="feature-item c-grid -middle">
+    <img src="<%= image_path('charactor_show_of_hands@2x.png') %>" width="100%" height="auto">
+    習慣化
+    通知がくる
+    発信しやすいプラットフォーム
+    楽しいかわいい
+  </div>
+
+  <div class="feature-item c-grid -middle">
+    自己成長を実感
+    日々だけではなく
+    振り返りを振り返り
+    1週間1ヶ月前1年前
+    <img src="<%= image_path('charactor_wait@2x.png') %>" width="100%" height="auto">
+  </div>
+
+  <div class="feature-item c-grid -middle">
+    <img src="<%= image_path('charactor_good@2x.png') %>" width="100%" height="auto">
+    自己成長をアピール
+    新たな出会い
+    他社からのフィードバック
+  </div>
+</section>
+
+<section class="section-block service-image">  
+  <h2>振り返りで、理想の自分に近づこう。</h2>
+
+  <button class="c-button -twitter">
+    <i class="fab fa-twitter"></i>
+    <%= link_to 'Twitterログイン', user_twitter_omniauth_authorize_path %>
+  </button>
+</section>
