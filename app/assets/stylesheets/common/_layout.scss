@@ -4,39 +4,48 @@
 
 $white:                         #fff;
 $black:                         #000;
-$gray:                          #707070;
-$brown:                         #383131;
-$blue:                          #1DA1F3;
-$yellow:                        #FAE04B;
+$gray:                          #272C34;
+$darkgray:                      #1B1F24;
+$bluegray:                      #1B2838;
+$twitterblue:                   #1DA1F3;
 
 /*root*/
 html {
   font-size: 62.5%!important;
-  @media screen and (max-width: 1280px) and (min-width: 769px) { 
-    font-size: .78125vw!important;
+  @media screen and (max-width: 1680px) and (min-width: 769px) { 
+    font-size: .5vw!important;
   }
 }
 
+
+
 /*header*/
 header {
-  padding-bottom: 188px;
+  height: 114px;
+  padding-left: 136px;
   font-size: 1.927vw;
-  background-color: $yellow;
+  background-color: $bluegray;
 }
 
 /*footer*/
 footer {
-  padding: 38px 0;
-  font-size: 3.7rem;
-  background-color: $yellow;
+  height: 113px;
+  font-size: 2.5rem;
+  background-color: $bluegray;
   
-  li:first-child {
-    margin-left: 236px;
+  .c-grid li:first-child {
+    margin-left: 6.198vw;
   }
 
   li {
-    margin-right: 50px;
+    margin-right: 6.510vw;
+
+    a {
+      text-decoration: underline;
+    }
   }
+
+
   .copyright {
     font-size: 2.0rem;
   }
@@ -44,6 +53,9 @@ footer {
 
 .copyright {
   font-size: 3.7rem;
+  @media screen and (max-width: 769px) { 
+    font-size: 2.0rem;
+  }
 }
 
 /*margin*/
@@ -61,6 +73,8 @@ footer {
 .mL10{margin-left:10px;}
 .mL15{margin-left:15px;}
 .mL20{margin-left:20px;}
+
+.mL30{margin-left:30px;}
 
 .mR5{margin-right:5px;}
 .mR10{margin-right:10px;}
@@ -173,10 +187,7 @@ footer {
   &.-twitter {
     width: 447px;
     height: 121px;
-    font-size: 3.3rem;
-    background-color: $blue;
-  }
-  &.-save {
-    background-color: $yellow;
+    font-size: 4rem;
+    background-color: $twitterblue;
   }
 }
