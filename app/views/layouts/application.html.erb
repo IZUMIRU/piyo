@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Piyo</title>
+    <title>Markdown tweet</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,9 +13,7 @@
   </head>
 
   <body>
-    <% if request.path_info != "/" %> 
-      <%= render "components/header" %>
-    <% end %>
+    <%= render "components/header" %>
     <%= yield %>
     <%= render "components/footer" %>
   </body>
