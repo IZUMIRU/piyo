@@ -37,3 +37,7 @@ gem 'devise'
 gem 'omniauth-twitter'
 gem 'mini_magick'
 gem 'twitter'
+
+group :production, :staging do
+  gem 'rails_12factor'
+end
