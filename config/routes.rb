@@ -2,10 +2,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  root to: 'notifications#top'
-  get 'notifications/set' => 'notifications#set'
-  resources :notifications, only: [:create, :update]
-
-  get 'reports/start' => 'reports#start'
-  resources :reports, only: [:show, :new, :create]
+  root to: 'tweets#top'
+  resources :tweets, only: [:top, :show, :new, :create]
 end

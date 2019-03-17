@@ -1,27 +1,28 @@
-class ReportsController < ApplicationController
+class TweetsController < ApplicationController
   require 'twitter'
-  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create]
   before_action :set_twitter_client
 
-  def show
-    @report = Report.find(params[:id])
+  def top
+    if user_signed_in?
+      redirect_to new_tweet_path
+    end
   end
 
-  def start
-    @report = Report.new
+  def show
+    @tweet = Tweet.find(params[:id])
   end
 
   def new
-    @report = Report.new
+    @tweet = Tweet.new
   end
 
   def create
-    @report = Report.new(report_params)
-    if @report.save
-      # @twitter.update(@report.description)
-      redirect_to @report
+    @tweet = Tweet.new(tweet_params)
+    if @tweet.save
+      redirect_to @tweet
     else
-      redirect_to new_report_path
+      render :new
     end
   end
 
@@ -35,7 +36,7 @@ class ReportsController < ApplicationController
     end
   end
 
-  def report_params
-    params.require(:report).permit(:description).merge(user_id: current_user.id)
+  def tweet_params
+    params.require(:tweet).permit(:description).merge(user_id: current_user.id)
   end
 end

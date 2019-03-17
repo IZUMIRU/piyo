@@ -1,0 +1,6 @@
+<h1>Tweet</h1>
+
+<%= form_with model: @tweet, local: true do |f| %>
+  <%= f.text_area :description %>
+  <%= f.submit 'Tweet' %>
+<% end %>
