@@ -1,0 +1,57 @@
+//----------------------------------------------------------------------
+//
+// NEW
+//
+//----------------------------------------------------------------------
+
+#editor {
+  padding: 52px 0 42.3px;
+  height: 100%;
+  color: $white;
+
+  // マークダウン記法に対応するようにセレクタにプロパティを付与
+  h1 {
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 24px
+  }
+  h3 {
+    font-size: 20px
+  }
+  h4 {
+    font-size: 18px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  h6 {
+    font-size: 12px;
+  }
+
+  li {
+    list-style: disc;
+  }
+}
+
+textarea, #editor div {
+  font-family: 'Tsukushi A Round Gothic', Arial, sans-serif;
+  display: inline-block;
+  width: 49.8%;
+  height: 603px;
+  vertical-align: top;
+  padding: 0 20px;
+}
+
+#editor div {
+  background-color: $gray;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  font-size: 14px;
+  font-family: 'Tsukushi A Round Gothic', Arial, sans-serif;
+  padding: 20px;
+  background-color: $bluegray;
+}

@@ -1,6 +1,28 @@
-<h1>Tweet</h1>
+<div id='editor'>
+  <textarea rows="10" cols="50" v-bind:value='input' v-on:input='updateValue'></textarea>
+  <div v-html='convertMarkdownToHtml'></div>
+</div>
 
-<%= form_with model: @tweet, local: true do |f| %>
-  <%= f.text_area :description %>
-  <%= f.submit 'Tweet' %>
-<% end %>
+<button class="c-button -twitter">
+  <i class="fab fa-twitter"></i>
+  <%= link_to 'Tweet', '#' %>
+</button>
+
+<script>
+  var app = new Vue({
+    el: '#editor',
+    data: {
+      input: '# Let\'s write it here!!',
+    },
+    computed: {
+      convertMarkdownToHtml: function() {
+        return marked(this.input, {sanitize: true});
+      }
+    },
+    methods: {
+      updateValue: _.debounce(function(eventObject) {
+        this.input = eventObject.target.value;
+      }, 500)
+    },
+  });
+</script>
