@@ -11,7 +11,7 @@
 //======================================================================
 
 body {
-  // color: $white;
+  color: $white;
   background-color: $white;
   
   a {
@@ -70,22 +70,24 @@ body {
 }
 
 .firstview-unit-heading {
-  padding-top: 180px;
-  margin-right: 11.09vw;
-  margin-left: 13.96vw;
+  margin-top: 69px;
 
   @media screen and (max-width: 768px) { 
-    padding-top: 30px;
-    margin-right: 34px;
-    margin-left: 34px;
+    margin-top: 0;
   }
 }
 
 .firstview-content {
-  padding-bottom: 148.3px;
+  margin-top: 111px;
+  margin-right: 12.51vw;
+  margin-bottom: 148.3px;
+  margin-left: 13.96vw;
 
   @media screen and (max-width: 768px) {
-    padding-bottom: 38.8px; 
+    margin-top: 30px;
+    margin-right: 34px;
+    margin-bottom: 38.8px; 
+    margin-left: 34px;
   }
 }
 
@@ -94,6 +96,7 @@ body {
   height: 100%;
   display: block;
   z-index: 0;
+  overflow: hidden;
 }
 
 .particles-js-canvas-el {
@@ -147,9 +150,6 @@ body {
 }
 
 .firstview-image {
-  margin-top: 111px;
-  margin-right: 12.51vw;
-
   img {
     width: 558px;
     height: auto;
@@ -160,7 +160,6 @@ body {
 @media screen and (max-width: 768px) {
   .firstview-image {
     margin-top: 30px;
-    padding: 0 24px;
     text-align: center;
     margin-right: 0;
   }
