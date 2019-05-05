@@ -1,28 +1,71 @@
-<div id='editor'>
-  <textarea rows="10" cols="50" v-bind:value='input' v-on:input='updateValue'></textarea>
-  <div v-html='convertMarkdownToHtml'></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.12.5/vue.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/solarized_light.min.css">
+
+<style type="text/css">
+html, body, #editor {
+  margin: 0;
+  height: 100%;
+}
+textarea, #editor div {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+  padding: 0 20px;
+  overflow-y: scroll;
+}
+textarea {
+  border: none;
+  resize: none;
+  outline: none;
+  background-color: $bluegray;
+  font-size: 14px;
+  padding: 20px;
+}
+.write {
+  width: 50%;
+  background-color: #1B2838; 
+  text-align: center;
+}
+.preview {
+  width: 50%;
+  background-color: #272C34;
+  text-align: center;
+}
+</style>
+
+<div class="c-grid">
+  <p class="write">Write</p>
+  <p class="preview">Preview</p>
+</div>
+
+
+<div id="editor">
+  <textarea v-model="input" debounce="300"></textarea>
+  <div v-html="input | marked"></div>
 </div>
 
 <button class="c-button -twitter">
   <i class="fab fa-twitter"></i>
-  <%= link_to 'Tweet', '#' %>
+  <span>Tweet</span> 
 </button>
 
 <script>
-  var app = new Vue({
+(function() {
+marked.setOptions({
+    highlight: function(code, lang) {
+        return hljs.highlightAuto(code, [lang]).value;
+    }
+});
+new Vue({
     el: '#editor',
     data: {
-      input: '# Let\'s write it here!!',
+        input: '# hello'
     },
-    computed: {
-      convertMarkdownToHtml: function() {
-        return marked(this.input, {sanitize: true});
-      }
-    },
-    methods: {
-      updateValue: _.debounce(function(eventObject) {
-        this.input = eventObject.target.value;
-      }, 500)
-    },
-  });
+    filters: {
+        marked: marked
+    }
+})
+}).call(this);
 </script>
