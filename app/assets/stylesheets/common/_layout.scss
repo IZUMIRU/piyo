@@ -20,7 +20,7 @@ html {
 /*header*/
 header {
   height: 114px;
-  padding-left: 136px;
+  padding: 0 136px;
   font-size: 1.927vw;
   background-color: $bluegray;
 
@@ -45,7 +45,7 @@ header {
 
   @media screen and (max-width: 768px) {
     height: 66px;
-    padding-left: 25.6px;
+    padding: 0 25.6px;
   }
 }
 
@@ -242,4 +242,8 @@ footer {
       font-size: 2rem;
     }
   }
+}
+
+.width100 {
+  width: 100%;
 }

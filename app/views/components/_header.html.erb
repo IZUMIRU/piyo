@@ -1,4 +1,9 @@
 <header class="c-grid -middle">
   <img src="<%= image_path('md_logo@2x.png') %>" width="51px" height="51px">
-  <span class="copyright">Markdown Tweet</span>
+  <div class="c-grid -between width100">
+    <span class="copyright">Markdown Tweet</span>
+    <% if user_signed_in? %>
+      <span class="copyright"><%= link_to 'logout', sign_out_path %></span>
+    <% end %>
+  </div>
 </header>
