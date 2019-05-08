@@ -13,10 +13,12 @@
     </div>
   </div>
 
-  <button class="c-button -twitter">
-    <i class="fab fa-twitter"></i>
-    <%= link_to 'Sign in', user_twitter_omniauth_authorize_path %>
-  </button>
+  <%= link_to user_twitter_omniauth_authorize_path do %>
+    <button class="c-button -twitter">
+      <i class="fab fa-twitter"></i>
+      <span>Sign in</span> 
+    </button>
+  <% end %>
 </section>
 
 <script>
