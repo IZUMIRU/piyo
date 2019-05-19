@@ -1,0 +1,27 @@
+html, body, #editor {
+  margin: 0;
+}
+textarea, #editor div {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 20px;
+  overflow-y: scroll;
+}
+textarea {
+  border: none;
+  resize: none;
+  outline: none;
+  background-color: #1B2838;
+  font-size: 14px;
+  padding: 20px;
+}
+.write {
+  width: 50%;
+  background-color: #1B2838; 
+  text-align: center;
+}
+.preview {
+  width: 50%;
+  background-color: #272C34;
+  text-align: center;
+}
