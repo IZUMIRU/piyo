@@ -1,24 +1,11 @@
-# README
+# [Rails/Vue] Twitter Markdown
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- https://www.markdowntweet.io/
 
-Things you may want to cover:
+#### トップページ
 
-* Ruby version
+![image](https://user-images.githubusercontent.com/11635641/78171977-3f0ab380-7490-11ea-9cff-5b8738cd909b.png)
 
-* System dependencies
+#### マークダウン投稿ページ
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![image](https://user-images.githubusercontent.com/11635641/78175067-41234100-7495-11ea-9e67-9125e38f625b.png)
